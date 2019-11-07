@@ -74,7 +74,36 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon){
+    this.model= model;
+    this.milesPerGallon= milesPerGallon;
+    this.tank= 0;
+    this.odometer= 0;
+  }
+  fill(gallons){
+    this.tank+= gallons;
+  }
+  drive(distance){
+    // calculate how much fuel will be needed to make the distance
+    const fuelRequirements= distance/this.milesPerGallon; 
+    
+    if( fuelRequirements <= this.tank ){
+      this.odometer+= distance;
+      this.tank-= fuelRequirements;
+    }else{
+      // fuel deficit for making entire trip
+      const fuelDeficit= fuelRequirements - this.tank;
+      //drivable miles based on current fuel level
+      const capableDistance= this.tank * this.milesPerGallon;
+      
+      //empty gas tank
+      this.tank= 0;
+      //increase odometer by drivable miles
+      this.odometer+= capableDistance;
+      
+      return( "I ran out of fuel at "+this.odometer+ " miles");
+    }//end if/else
+  }//end drive method
 }
 
 /*
