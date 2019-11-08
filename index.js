@@ -157,7 +157,7 @@ class Instructor extends Lambdasian{
   }//end demo
 
   grade( student= {}, subject ){
-    let randGrade= Math.floor(Math.random() * (50 - -20)) + 50;
+    let randGrade= Math.floor(Math.random() * (50 - -20)) + -20;
     student.grade+= randGrade;
     return `${student.name} receives a perfect score on ${subject}`;
   }//end grade
