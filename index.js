@@ -157,6 +157,8 @@ class Instructor extends Lambdasian{
   }//end demo
 
   grade( student= {}, subject ){
+    let randGrade= Math.floor(Math.random() * (-20 - 50));
+    student.grade+= randGrade;
     return `${student.name} receives a perfect score on ${subject}`;
   }//end grade
 }//end class
@@ -196,6 +198,14 @@ class Student extends Lambdasian{
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`;
   }
+
+  graduate(){
+    if(this.grade > 69){
+      return "Ready to graduate!";
+    }else{
+      return " Not ready to graduate yet."
+    }
+  }//end graduate
 }// end Student
 
 /*
